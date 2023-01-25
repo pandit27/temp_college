@@ -100,3 +100,6 @@ void insert::printArray(vector<int>&v, int n){
         cout<<v[i]<<endl;
     }
 }
+
+// we can also reduce its time coplexity by using binary search algorithm to find the appropriate position to insert the element
+// optimized insertion sort => insertion sort + binary search
