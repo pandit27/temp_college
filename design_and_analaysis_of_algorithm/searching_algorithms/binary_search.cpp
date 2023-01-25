@@ -4,18 +4,22 @@
 using namespace std;
 
 // binary search
-void binarySearch(int first, int last, int arr[], int e){
+int binarySearch(int first, int last, int arr[], int e){
     int mid = (first + last) / 2;
     if(e == arr[mid]){
         cout<<"Element found at index "<<mid<<endl;
     }
     else if(e > arr[mid]){
-        binarySearch(mid, N, arr, e);
+        return binarySearch(mid + 1, N, arr, e);
     }
     else if(e < arr[mid]){
-        binarySearch(first, mid, arr, e);
+        return binarySearch(first, mid - 1, arr, e);
+    }
+    else{
+        return -1;
     }
 }
+
 
 int main(){
     int arr[N], e, first = 0, last = N;
@@ -30,7 +34,12 @@ int main(){
     cout<<"Enter the element that you want to search: ";
     cin>>e;
     
-    binarySearch(first, last, arr, e);
+    if(binarySearch(first, last, arr, e) == -1){
+        cout<<"Element not found \n";
+    }
+    else{
+        binarySearch(first, last, arr, e);
+    }
     
     return 0;
 }
