@@ -1,4 +1,5 @@
-// C++ program to perform insertion sorting written by Priyanshu Jha
+// C++ program to implement insertion sort 
+// Written by Priyanshu Jha
 
 #include <iostream>
 #include <vector>
