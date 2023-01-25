@@ -1,4 +1,5 @@
 // This is optimized bubble sorting algorithm
+// Written by Priyanshu Jha
 
 #include <iostream>
 #include <vector>
