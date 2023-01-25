@@ -1,3 +1,6 @@
+// C++ program to implement bubble sort
+// Written by Priyanshu Jha
+
 #include <bits/stdc++.h>
 using namespace std;
 
