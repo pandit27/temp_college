@@ -42,7 +42,7 @@ int main(){
     return 0;
 }
 
-// 16 15 7 3 9
+// 1 4 2 3 5
 /*
     Dry run
     
