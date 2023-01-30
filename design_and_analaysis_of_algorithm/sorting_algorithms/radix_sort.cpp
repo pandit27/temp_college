@@ -74,6 +74,7 @@ void radixSort::rSort(vector<int> &v, vector<int> &a)
     }
 }
 
+// function to perform counting sort
 void radixSort::cSort(vector<int> &v, vector<int> &a, int pos){
     // lets define an array count of size 10
     vector<int>c(10, 0);
@@ -94,6 +95,7 @@ void radixSort::cSort(vector<int> &v, vector<int> &a, int pos){
     }
 }
 
+// function to print the elements of the array
 void radixSort::printArray(vector<int> &v)
 {
     for (int i = 0; i < v.size(); i++)
