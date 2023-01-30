@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <vector>
-#define n 16 // defining the size of our array
+#define n 16 // defining the size of the array
 using namespace std;
 
 class countingSort
