@@ -32,11 +32,13 @@ int main(){
         cin>>x;
         v.push_back(x);
     }
+    cout<<endl;
     
     // creating the object of class quick
     class quick obj;
     // calling methods
     obj.printArray(v);
+    cout<<endl;
     obj.sort(v, 0, n - 1);
     obj.printArray(v);
     
