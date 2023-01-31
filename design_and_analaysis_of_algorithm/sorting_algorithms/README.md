@@ -1,1 +1,1 @@
-This folder contains all the sorting algorithms.
+This folder contains the insertion, selection, bubble, quick, merge, counting, radix and heap sort.
