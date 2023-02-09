@@ -1,4 +1,4 @@
-// C++ STL tutorial
+// C++ STL
 
 #include <utility> // utility class contains pair data type
 #include <bits/stdc++.h> // This include all the classes like iostream, math.h, string, vector, list etc.
@@ -98,6 +98,59 @@ void explainVectors()
     v.empty(); // returns true if empty else returns false 
 }
 
+// lists
+void explainList()
+{
+    list<int> l; // list<int> l is a doubly linked list where we can perform insertion and deletion from both sides
+
+
+    l.push_back(4);
+    l.emplace_back(5);
+    l.push_front(6);
+    l.emplace_front(7);
+    l.pop_back();
+    l.pop_front();
+
+    // rest functions are same as vector
+    // begin(), end(), size(), clear(), insert(), swap()
+}
+
+// dequeues
+void explainDequeue()
+{
+    deque<int> dq; // dequeue<int> dq is a doubly ended queue
+
+    dq.push_back(4);
+    dq.emplace_back(5);
+    dq.push_front(6);
+    dq.emplace_front(7);
+    dq.pop_back();
+    dq.pop_front();
+
+    // rest functions are same as vector
+    // begin(), end(), size(), clear(), insert(), swap()
+}
+
+
+// stacks
+void explainStack()
+{
+    stack<int> s; // stack follows lifo principle
+
+    s.push(4); // {4}
+    s.emplace(5); // {5, 4}
+    s.emplace(6); // {6, 5, 4}
+    s.emplace(7); // {7, 6, 5, 4}
+    s.pop(); //{6, 5, 4}
+
+    s.top(); // output => 6
+    s.size(); // output => 3
+
+    s.empty(); // output => false
+
+    stack<int> s1, s2;
+    s1.swap(s2);
+}
 
 int main()
 {
