@@ -9,27 +9,25 @@ using namespace std;
 class breadhFirstSearch
 {
 public:
-    map<int, vector<int>> m; // map to get the adjacency matrix => edges b/w two nodes
+    map<int, vector<int>> m;
 
-    // function to add edge b/w two nodes
     void addEdge(int a, int b)
     {
         m[a].push_back(b);
         m[b].push_back(a);
     }
 
-    // function to implement bfs traversal algorithm
-    void bfs_traversal(int v)
+    vector<int> bfs_traversal(int v)
     {
-        vector<int> bfs; // vector to store the bfs path
-        vector<int> vis(v, 0); // vector to get if the node is visited or not
+        vector<int> bfs;
+        vector<int> vis(v, 0);
         for (int i = 0; i < v; i++)
         {
             if (vis[i] == 0)
             {
-                queue<int> q; // queue to store the elements in a queue
+                queue<int> q;
                 q.push(i);
-                vis[i] = 1; // since first node is visited
+                vis[i] = 1;
 
                 while (!q.empty())
                 {
@@ -50,11 +48,7 @@ public:
             }
         }
 
-        // printing the elements of the vector
-        for (auto it : bfs)
-        {
-            cout << it << endl;
-        }
+        return bfs;
     }
 };
 
@@ -72,7 +66,12 @@ int main()
     b.addEdge(2, 7);
     b.addEdge(8, 9);
 
-    b.bfs_traversal(v);
+    vector<int> vec = b.bfs_traversal(v);
+
+    for (auto it : vec)
+    {
+        cout << it << endl;
+    }
 
     return 0;
 }
