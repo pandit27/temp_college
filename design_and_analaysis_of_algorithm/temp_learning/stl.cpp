@@ -1,4 +1,4 @@
-// C++ STL
+// C++ STL tutorial
 
 #include <utility> // utility class contains pair data type
 #include <bits/stdc++.h> // This include all the classes like iostream, math.h, string, vector, list etc.
@@ -150,6 +150,56 @@ void explainStack()
 
     stack<int> s1, s2;
     s1.swap(s2);
+}
+
+void explainQueue()
+{
+    queue<int> q; // queue follows fifo principle
+
+    q.push(4); // {4}
+    q.emplace(5); // {4, 5}
+    q.emplace(6); // {4, 5, 6}
+    q.emplace(7); // {4, 5, 6, 7}
+
+    cout<<q.back(); // output => 7
+
+    q.back() += 5;
+    cout<<q.back(); // {4, 5, 6, 12}
+
+    q.pop(); //{5, 6, 12}
+    q.pop(); //{6, 12}
+
+    q.front(); // output => 6
+
+    // rest functions are same as vector
+    // size(), swap(), empty()
+}
+
+// priority queue
+void explainPriorityQueue()
+{
+    priority_queue<int> pq; // priority queue follows fifo but the maximum element is always stored at the top
+
+    pq.push(5); // {5}
+    pq.emplace(2); // {5, 2}
+    pq.emplace(8); // {8, 5, 2}
+    pq.emplace(10); // {10, 8, 5, 2}
+
+    cout<<pq.top(); // output => 10
+
+    pq.pop(); // {8, 5, 2}
+
+    /* minimum heap */
+    priority_queue<int, vector<int>, greater<int>> pq;
+    pq.push(5); // {5}
+    pq.emplace(2); // {2, 5}
+    pq.emplace(8); // {2, 5, 8}
+    pq.emplace(10); // {2, 5, 8, 10}
+
+    cout<<pq.top(); // output => 2
+
+    // rest functions same as vector
+    // size(), swap(), empty()
 }
 
 int main()
