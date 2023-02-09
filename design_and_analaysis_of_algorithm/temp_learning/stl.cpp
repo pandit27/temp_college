@@ -1,4 +1,4 @@
-// C++ STL tutorial
+// C++ STL
 
 // #include <iostream>
 // #include <vector>
