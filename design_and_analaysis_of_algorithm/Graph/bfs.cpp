@@ -1,3 +1,6 @@
+// C++ code to implement BFS traversal
+// code written by Priyanshu Jha
+
 // #include <bits/stdc++.h>
 #include <iostream>
 #include <map>
@@ -9,23 +12,25 @@ using namespace std;
 class breadhFirstSearch
 {
 public:
-    map<int, vector<int>> m;
+    map<int, vector<int>> m; // map to store the adjacency matrix => edges b/w two nodes
 
+    // function to add edges b/w two nodes
     void addEdge(int a, int b)
     {
         m[a].push_back(b);
         m[b].push_back(a);
     }
 
+    // function to perform bfs traversal
     vector<int> bfs_traversal(int v)
     {
-        vector<int> bfs;
-        vector<int> vis(v, 0);
+        vector<int> bfs;       // vector to store bfs path
+        vector<int> vis(v, 0); // vector to store if the node is visited or not
         for (int i = 0; i < v; i++)
         {
             if (vis[i] == 0)
             {
-                queue<int> q;
+                queue<int> q; // queue to add the nodes in the queue to perform pop() operation and find the bfs path
                 q.push(i);
                 vis[i] = 1;
 
