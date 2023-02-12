@@ -1,40 +1,56 @@
-// #include <bits/stdc++.h>
+// C++ program to implement DFS Traversal
+// code written by Priyanshu Jha
+
 #include <iostream>
-#include <map>
-#include <list>
 #include <vector>
-#include <queue>
+#include <list>
+#include <map>
+#include <utility>
 using namespace std;
 
-// class to implement depth first search algorithm
-class depthFirstSearch
+// class to implement dfs traversal
+class depth_first_search
 {
 private:
-    void dfs(int node, map<int, vector<int>> &m, int vis[], list<int> &ls)
+    // function to get the dfs path
+    void dfs(int i, vector<bool> &visited, vector<int> &dfs_path)
     {
-        vis[node] = 1;
-        ls.push_back(node);
+        visited[i] = true;
+        dfs_path.push_back(i);
 
-        // traverse its neighbours
-        for (auto it : m[node])
+        for (auto it : adj[i])
         {
-            if (vis[it] == 0)
+            if (!visited[it])
             {
-                dfs(it, m, vis, ls);
+                dfs(it, visited, dfs_path);
             }
         }
     }
 
 public:
-    list<int> dfs_traversal(int v, map<int, vector<int>> &m)
+    map<int, vector<int>> adj;
+
+    // function to add edge
+    void addEdge(int a, int b)
     {
-        int vis[v] = {0};
-        int start = 0;
-        list<int> ls;
+        adj[a].push_back(b);
+        adj[b].push_back(a); // for undirected graph only
+    }
 
-        dfs(start, m, vis, ls);
+    // function to make a recursive call and return the final bfs path
+    vector<int> dfs_tranversal(int v)
+    {
+        vector<bool> visited(v, false);
+        vector<int> dfs_path;
+        for (int i = 0; i < v; i++)
+        {
+            if (!visited[i])
+            {
+                dfs(i, visited, dfs_path);
+            }
+        }
 
-        return ls;
+        return dfs_path;
     }
 };
 
@@ -44,5 +60,24 @@ int main()
     cout << "Enter the number of vertices: ";
     cin >> v;
 
+    depth_first_search d;
+
+    d.addEdge(1, 2);
+    d.addEdge(2, 4);
+    d.addEdge(2, 7);
+    d.addEdge(4, 6);
+    d.addEdge(6, 7);
+    d.addEdge(3, 5);
+
+    vector<int> vec = d.dfs_tranversal(v);
+
+    // printing the dfs path
+    for (auto it : vec)
+    {
+        cout << vec[it] << endl;
+    }
+
     return 0;
 }
+
+// Time complexity => O(n) -- overall
