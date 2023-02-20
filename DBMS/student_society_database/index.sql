@@ -667,3 +667,49 @@ select distinct s.sid, s.sname from society s left join enrollment e on s.sid = 
 | 03   | shasakt |
 +------+---------+
 */
+
+-- Q17. Find society names whose mentor name is same as that of any enrolled student in it.
+
+insert into enrollment (rollno, sid, dateOfEnrollment) values ('M-1274', '01', '2023-04-06');
+
+ select * from society;
+
+ /*
++------+----------+------------+----------+
+| sid  | sname    | mentorname | capacity |
++------+----------+------------+----------+
+| 01   | debating | Meenakshi  |       17 |
+| 02   | dancing  | Priyanka   |       22 |
+| 03   | shasakt  | Yuabcsh    |       11 |
+| 04   | eco      | Mahesh     |       28 |
+| 05   | picfie   | Preeti     |       33 |
+| 06   | tech     | Nisha      |       22 |
+| 07   | music    | Ritesh     |        6 |
+| 08   | hacking  | deepika    |        9 |
+| 09   | coding   | Shubh      |       44 |
+| 10   | cricket  | Chirag     |       88 |
++------+----------+------------+----------+
+*/
+
+select * from enrollment;
+
+/*
++---------+------+------------------+
+| rollno  | sid  | dateOfEnrollment |
++---------+------+------------------+
+| AD-1274 | 06   | 2023-01-15       |
+| P-1276  | 07   | 2023-01-16       |
+| AD-1294 | 02   | 2023-02-15       |
+| X-1263  | 02   | 2023-01-17       |
+| Z-1601  | 06   | 2023-01-17       |
+| M-1274  | 03   | 2023-01-15       |
+| A-1284  | 09   | 2023-01-15       |
+| P-1276  | 04   | 2022-05-19       |
+| B-1290  | 08   | 2023-04-15       |
+| X-1263  | 10   | 2023-08-16       |
+| B-1290  | 01   | 2023-01-17       |
+| B-1290  | 02   | 2023-01-20       |
+| B-1290  | 03   | 2023-01-24       |
+| M-1274  | 01   | 2023-04-06       |
++---------+------+------------------+
+*/
