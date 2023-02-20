@@ -564,11 +564,12 @@ select sname from society where sid in (select sid from enrollment);
 
 -- Q15. Find names of students who are enrolled in all three societies ‘debating’, ‘dancing’ and ‘sashakt’.
 
-select s.name from student s join enrollment e on s.name = e.sid where e.sid in ('01', '02', '03') group by s.name having count(distinct e.sid) = 3;
+-- select s.name from student s join enrollment e on s.name = e.sid where e.sid in ('01', '02', '03') group by s.name having count(distinct e.sid) = 3;
 
 
 select * from enrollment;
-select 
+
+/*
 +---------+------+------------------+
 | rollno  | sid  | dateOfEnrollment |
 +---------+------+------------------+
@@ -583,10 +584,13 @@ select
 | B-1290  | 08   | 2023-04-15       |
 | X-1263  | 10   | 2023-08-16       |
 +---------+------+------------------+
+*/
 
-insert into enrollment(rollno, sid, dateOfEnrollment) values ('B-1290', '01', '2023-01-17'), ('B-1290', '02', '2023-01-20'), ('B-1290', '03', '2023-01-24');
+-- insert into enrollment(rollno, sid, dateOfEnrollment) values ('B-1290', '01', '2023-01-17'), ('B-1290', '02', '2023-01-20'), ('B-1290', '03', '2023-01-24');
 
 select * from enrollment;
+
+/*
 +---------+------+------------------+
 | rollno  | sid  | dateOfEnrollment |
 +---------+------+------------------+
@@ -604,4 +608,10 @@ select * from enrollment;
 | B-1290  | 02   | 2023-01-20       |
 | B-1290  | 03   | 2023-01-24       |
 +---------+------+------------------+
+*/
 
+ select s.name from student s inner join enrollment e on s.rollno = e.rollno inner join society so on e.sid = so.sid where so.sid in ('debating', 'dancing', 'sashakt') group by s.name having count(distinct so.sid) = 3;
+
+ /*
+ Empty set
+ */
