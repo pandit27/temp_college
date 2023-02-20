@@ -1342,3 +1342,47 @@ having
  |                     1 | 02   |
  +-----------------------+------+
  */
+-- Q28. add column contact in student with default value
+select
+  *
+from
+  student;
+
+/*
+ +---------+-----------+---------+------------+
+ | rollno  | name      | cname   | dob        |
+ +---------+-----------+---------+------------+
+ | X-1263  | Nikhil    | pmcs    | 2001-04-02 |
+ | Z-1601  | Vipin     | pmcs    | 2001-04-03 |
+ | AD-1274 | Priyanshu | cs      | 2003-04-08 |
+ | A-1284  | Satendar  | cs      | 2002-04-07 |
+ | B-1230  | Deepak    | zoology | 2002-04-03 |
+ | P-1276  | Bhoomika  | pscs    | 2002-11-27 |
+ | B-1290  | Aman      | pscs    | 2002-04-10 |
+ | M-1274  | Meenakshi | physics | 2004-01-09 |
+ +---------+-----------+---------+------------+
+ */
+alter table
+  student
+add
+  contact varchar(20) default 'unknown';
+
+select
+  *
+from
+  student;
+
+/*
+ +---------+-----------+---------+------------+---------+
+ | rollno  | name      | cname   | dob        | contact |
+ +---------+-----------+---------+------------+---------+
+ | X-1263  | Nikhil    | pmcs    | 2001-04-02 | unknown |
+ | Z-1601  | Vipin     | pmcs    | 2001-04-03 | unknown |
+ | AD-1274 | Priyanshu | cs      | 2003-04-08 | unknown |
+ | A-1284  | Satendar  | cs      | 2002-04-07 | unknown |
+ | B-1230  | Deepak    | zoology | 2002-04-03 | unknown |
+ | P-1276  | Bhoomika  | pscs    | 2002-11-27 | unknown |
+ | B-1290  | Aman      | pscs    | 2002-04-10 | unknown |
+ | M-1274  | Meenakshi | physics | 2004-01-09 | unknown |
+ +---------+-----------+---------+------------+---------+
+ */
