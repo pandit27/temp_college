@@ -748,3 +748,60 @@ select distinct s.sname from society s inner join enrollment e on s.sid = e.sid 
 | debating |
 +----------+
 */
+
+-- Q19. Display the vacant seats for each society
+
+ select s.sname, (s.capacity - (select count(*) from enrollment e where e.sid = s.sid)) as vacant_seats from society s;
+
+ /*
++----------+--------------+
+| sname    | vacant_seats |
++----------+--------------+
+| debating |           15 |
+| dancing  |           19 |
+| shasakt  |            9 |
+| eco      |           27 |
+| picfie   |           33 |
+| tech     |           20 |
+| music    |            5 |
+| hacking  |            8 |
+| coding   |           43 |
+| cricket  |           87 |
++----------+--------------+
+*/
+
+-- Q20. Find society names in which more than five students have enrolled in the given year
+
+select s.sname from society s inner join enrollment e on s.sid = e.sid where year(e.dateOfEnrollment) = 2023 group by s.sname having count(*) > 5;
+
+/*
+Empty set
+*/
+
+-- Q21. Add enrolment fees paid (‘yes’/’No’) field in the enrollment table.
+
+alter table enrollment add fees_paid enum('yes', 'no') default 'no';
+
+mysql> select * from enrollment;
+
+/*
++---------+------+------------------+-----------+
+| rollno  | sid  | dateOfEnrollment | fees_paid |
++---------+------+------------------+-----------+
+| AD-1274 | 06   | 2023-01-15       | no        |
+| P-1276  | 07   | 2023-01-16       | no        |
+| AD-1294 | 02   | 2023-02-15       | no        |
+| X-1263  | 02   | 2023-01-17       | no        |
+| Z-1601  | 06   | 2023-01-17       | no        |
+| M-1274  | 03   | 2023-01-15       | no        |
+| A-1284  | 09   | 2023-01-15       | no        |
+| P-1276  | 04   | 2022-05-19       | no        |
+| B-1290  | 08   | 2023-04-15       | no        |
+| X-1263  | 10   | 2023-08-16       | no        |
+| B-1290  | 01   | 2023-01-17       | no        |
+| B-1290  | 02   | 2023-01-20       | no        |
+| B-1290  | 03   | 2023-01-24       | no        |
+| M-1274  | 01   | 2023-04-06       | no        |
++---------+------+------------------+-----------+
+*/
+
