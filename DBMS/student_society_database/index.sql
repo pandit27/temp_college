@@ -1235,3 +1235,28 @@ from
  | 10   | cricket  |                1 |
  +------+----------+------------------+
  */
+-- Q26. Find student names enrolled in all societies.
+select
+  st.name
+from
+  student st
+where
+  st.rollno in (
+    select
+      e.rollno
+    from
+      enrollment e
+    group by
+      e.rollno
+    having
+      count(distinct e.sid) = (
+        select
+          count(*)
+        from
+          society
+      )
+  );
+
+/*
+ Empty set
+ */
