@@ -1386,3 +1386,53 @@ from
  | M-1274  | Meenakshi | physics | 2004-01-09 | unknown |
  +---------+-----------+---------+------------+---------+
  */
+-- Q29.  Find the name of oldest and youngest student in class along with their age and DOB
+select
+  *
+from
+  student;
+
+/*
+ +---------+-----------+---------+------------+---------+
+ | rollno  | name      | cname   | dob        | contact |
+ +---------+-----------+---------+------------+---------+
+ | X-1263  | Nikhil    | pmcs    | 2001-04-02 | unknown |
+ | Z-1601  | Vipin     | pmcs    | 2001-04-03 | unknown |
+ | AD-1274 | Priyanshu | cs      | 2003-04-08 | unknown |
+ | A-1284  | Satendar  | cs      | 2002-04-07 | unknown |
+ | B-1230  | Deepak    | zoology | 2002-04-03 | unknown |
+ | P-1276  | Bhoomika  | pscs    | 2002-11-27 | unknown |
+ | B-1290  | Aman      | pscs    | 2002-04-10 | unknown |
+ | M-1274  | Meenakshi | physics | 2004-01-09 | unknown |
+ +---------+-----------+---------+------------+---------+ 
+ */
+select
+  name,
+  curdate(),
+  timestampdiff(year, dob, curdate()) as age,
+  dob
+from
+  student
+where
+  dob in (
+    select
+      max(dob)
+    from
+      student
+    union
+    select
+      min(dob)
+    from
+      student
+  );
+
+/*
+ +-----------+------------+------+------------+
+ | name      | curdate()  | age  | dob        |
+ +-----------+------------+------+------------+
+ | Nikhil    | 2023-02-21 |   21 | 2001-04-02 |
+ | Meenakshi | 2023-02-21 |   19 | 2004-01-09 |
+ +-----------+------------+------+------------+
+ */
+
+ 
