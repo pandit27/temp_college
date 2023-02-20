@@ -416,3 +416,6 @@ select name from student where rollno = 'p-1276' or rollno = 'X-1263';
 | Bhoomika |
 +----------+
 */
+
+-- Q13. Find society names in which any student is enrolled
+
