@@ -561,3 +561,47 @@ select sname from society where sid in (select sid from enrollment);
 | cricket |
 +---------+
 */
+
+-- Q15. Find names of students who are enrolled in all three societies ‘debating’, ‘dancing’ and ‘sashakt’.
+
+select s.name from student s join enrollment e on s.name = e.sid where e.sid in ('01', '02', '03') group by s.name having count(distinct e.sid) = 3;
+
+
+select * from enrollment;
+select 
++---------+------+------------------+
+| rollno  | sid  | dateOfEnrollment |
++---------+------+------------------+
+| AD-1274 | 06   | 2023-01-15       |
+| P-1276  | 07   | 2023-01-16       |
+| AD-1294 | 02   | 2023-02-15       |
+| X-1263  | 02   | 2023-01-17       |
+| Z-1601  | 06   | 2023-01-17       |
+| M-1274  | 03   | 2023-01-15       |
+| A-1284  | 09   | 2023-01-15       |
+| P-1276  | 04   | 2022-05-19       |
+| B-1290  | 08   | 2023-04-15       |
+| X-1263  | 10   | 2023-08-16       |
++---------+------+------------------+
+
+insert into enrollment(rollno, sid, dateOfEnrollment) values ('B-1290', '01', '2023-01-17'), ('B-1290', '02', '2023-01-20'), ('B-1290', '03', '2023-01-24');
+
+select * from enrollment;
++---------+------+------------------+
+| rollno  | sid  | dateOfEnrollment |
++---------+------+------------------+
+| AD-1274 | 06   | 2023-01-15       |
+| P-1276  | 07   | 2023-01-16       |
+| AD-1294 | 02   | 2023-02-15       |
+| X-1263  | 02   | 2023-01-17       |
+| Z-1601  | 06   | 2023-01-17       |
+| M-1274  | 03   | 2023-01-15       |
+| A-1284  | 09   | 2023-01-15       |
+| P-1276  | 04   | 2022-05-19       |
+| B-1290  | 08   | 2023-04-15       |
+| X-1263  | 10   | 2023-08-16       |
+| B-1290  | 01   | 2023-01-17       |
+| B-1290  | 02   | 2023-01-20       |
+| B-1290  | 03   | 2023-01-24       |
++---------+------+------------------+
+
