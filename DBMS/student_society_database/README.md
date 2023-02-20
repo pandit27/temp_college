@@ -1,3 +1,3 @@
 updated till q16.
 
-more solutions coming soon...
+more solutions coming soon... 🙂
