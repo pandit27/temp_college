@@ -748,3 +748,25 @@ select distinct s.sname from society s inner join enrollment e on s.sid = e.sid 
 | debating |
 +----------+
 */
+
+-- Q19. Display the vacant seats for each society
+
+ select s.sname, (s.capacity - (select count(*) from enrollment e where e.sid = s.sid)) as vacant_seats from society s;
+
+ /*
++----------+--------------+
+| sname    | vacant_seats |
++----------+--------------+
+| debating |           15 |
+| dancing  |           19 |
+| shasakt  |            9 |
+| eco      |           27 |
+| picfie   |           33 |
+| tech     |           20 |
+| music    |            5 |
+| hacking  |            8 |
+| coding   |           43 |
+| cricket  |           87 |
++----------+--------------+
+*/
+
