@@ -858,3 +858,67 @@ update enrollment set dateOfEnrollment = '2018-01-02' where sid = '08';
 | M-1274  | 01   | 2023-04-06       | no        |
 +---------+------+------------------+-----------+
 */
+
+
+-- Q23. Find society names whose enrolment is over
+
+select sname from society where capacity <= (select count(*) from enrollment where enrollment.sid = society.sid);
+
+/*
+Empty set
+*/
+
+-- Q24. Find common societies of students of courses ‘cs(hons)’ and ‘pscs’
+
+select * from society;
+
+/*
++------+----------+------------+----------+
+| sid  | sname    | mentorname | capacity |
++------+----------+------------+----------+
+| 01   | debating | Meenakshi  |       17 |
+| 02   | dancing  | Priyanka   |       22 |
+| 03   | shasakt  | Yuabcsh    |       11 |
+| 04   | eco      | Mahesh     |       28 |
+| 05   | picfie   | Preeti     |       33 |
+| 06   | tech     | Nisha      |       22 |
+| 07   | music    | Ritesh     |        6 |
+| 08   | hacking  | deepika    |        9 |
+| 09   | coding   | Shubh      |       44 |
+| 10   | cricket  | Chirag     |       88 |
++------+----------+------------+----------+
+*/
+
+select * from enrollment;
+
+/*
++---------+------+------------------+-----------+
+| rollno  | sid  | dateOfEnrollment | fees_paid |
++---------+------+------------------+-----------+
+| AD-1274 | 06   | 2018-01-15       | no        |
+| P-1276  | 07   | 2023-02-20       | no        |
+| AD-1294 | 02   | 2023-02-15       | no        |
+| X-1263  | 02   | 2023-01-17       | no        |
+| Z-1601  | 06   | 2018-01-15       | no        |
+| M-1274  | 03   | 2023-01-15       | no        |
+| A-1284  | 09   | 2023-01-15       | no        |
+| P-1276  | 04   | 2022-05-19       | no        |
+| B-1290  | 08   | 2018-01-02       | no        |
+| X-1263  | 10   | 2023-08-16       | no        |
+| B-1290  | 01   | 2023-01-17       | no        |
+| B-1290  | 02   | 2023-01-20       | no        |
+| B-1290  | 03   | 2023-01-24       | no        |
+| M-1274  | 01   | 2023-04-06       | no        |
+| B-1290  | 09   | 2023-06-10       | no        |
++---------+------+------------------+-----------+
+*/
+
+select s.sname from enrollment e inner join society s on e.sid = s.sid inner join student st on e.rollno = st.rollno where st.cname in ('cs', 'pscs') group by s.sname having count(distinct st.rollno) = 2;
+
+/*
++--------+
+| sname  |
++--------+
+| coding |
++--------+
+*/
