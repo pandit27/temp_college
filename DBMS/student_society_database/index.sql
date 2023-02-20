@@ -770,3 +770,10 @@ select distinct s.sname from society s inner join enrollment e on s.sid = e.sid 
 +----------+--------------+
 */
 
+-- Q20. Find society names in which more than five students have enrolled in the given year
+
+select s.sname from society s inner join enrollment e on s.sid = e.sid where year(e.dateOfEnrollment) = 2023 group by s.sname having count(*) > 5;
+
+/*
+Empty set
+*/
