@@ -419,3 +419,55 @@ select name from student where rollno = 'p-1276' or rollno = 'X-1263';
 
 -- Q13. Find society names in which any student is enrolled
 
+select * from society;
+
+/*
++------+----------+------------+----------+
+| sid  | sname    | mentorname | capacity |
++------+----------+------------+----------+
+| 01   | debating | Meenakshi  |       17 |
+| 02   | dancing  | Priyanka   |       22 |
+| 03   | shasakt  | Ayush      |       11 |
+| 04   | eco      | Mahesh     |       28 |
+| 05   | picfie   | Preeti     |       33 |
+| 06   | tech     | Nisha      |       22 |
+| 07   | music    | Ritesh     |        6 |
+| 08   | hacking  | deepika    |        9 |
+| 09   | coding   | Shubh      |       44 |
+| 10   | cricket  | Chirag     |       88 |
++------+----------+------------+----------+
+*/
+
+ select * from student;
+
+ /*
++---------+-----------+---------+------------+
+| rollno  | name      | cname   | dob        |
++---------+-----------+---------+------------+
+| X-1263  | Nikhil    | pmcs    | 2001-04-02 |
+| Z-1601  | Vipin     | pmcs    | 2001-04-03 |
+| AD-1274 | Priyanshu | cs      | 2003-04-08 |
+| A-1284  | Satendar  | cs      | 2002-04-07 |
+| B-1230  | Deepak    | zoology | 2002-04-03 |
+| P-1276  | Bhoomika  | pscs    | 2002-11-27 |
+| B-1290  | Aman      | pscs    | 2002-04-10 |
+| M-1274  | Meenakshi | physics | 2004-01-09 |
++---------+-----------+---------+------------+
+*/
+
+ select sname from society where sid in (select sid from enrollment);
+
+ /*
++---------+
+| sname   |
++---------+
+| dancing |
+| shasakt |
+| eco     |
+| tech    |
+| music   |
+| hacking |
+| coding  |
+| cricket |
++---------+
+*/
