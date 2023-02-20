@@ -361,7 +361,7 @@ select name, rollno, cname, dob, curdate(), timestampdiff(year, dob, curdate()) 
 
 select * from student where timestampdiff(year, dob, curdate()) > 20;
 
-
+/*
 -- OUTPUT
 -- +--------+--------+-------+------------+
 -- | rollno | name   | cname | dob        |
@@ -369,3 +369,4 @@ select * from student where timestampdiff(year, dob, curdate()) > 20;
 -- | X-1263 | Nikhil | pmcs  | 2001-04-02 |
 -- | Z-1601 | Vipin  | pmcs  | 2001-04-03 |
 -- +--------+--------+-------+------------+
+*/
