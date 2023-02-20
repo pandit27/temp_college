@@ -370,3 +370,49 @@ select * from student where timestampdiff(year, dob, curdate()) > 20;
 -- | Z-1601 | Vipin  | pmcs  | 2001-04-03 |
 -- +--------+--------+-------+------------+
 */
+
+-- Q12. Find the student names enrolled in atleast two societies
+
+ select * from enrollment;
+
+/*
++---------+------+------------------+
+| rollno  | sid  | dateOfEnrollment |
++---------+------+------------------+
+| AD-1274 | 06   | 2023-01-15       |
+| P-1276  | 07   | 2023-01-16       |
+| AD-1294 | 02   | 2023-02-15       |
+| X-1263  | 02   | 2023-01-17       |
+| Z-1601  | 06   | 2023-01-17       |
+| M-1274  | 03   | 2023-01-15       |
+| A-1284  | 09   | 2023-01-15       |
+| P-1276  | 04   | 2022-05-19       |
+| B-1290  | 08   | 2023-04-15       |
+| X-1263  | 10   | 2023-08-16       |
++---------+------+------------------+
+*/
+
+
+
+ select rollno, count(*) as count from enrollment group by rollno having count > 1;
+
+/*
++--------+-------+
+| rollno | count |
++--------+-------+
+| P-1276 |     2 |
+| X-1263 |     2 |
++--------+-------+
+*/
+
+
+select name from student where rollno = 'p-1276' or rollno = 'X-1263';
+
+/*
++----------+
+| name     |
++----------+
+| Nikhil   |
+| Bhoomika |
++----------+
+*/
