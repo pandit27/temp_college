@@ -922,3 +922,5 @@ select s.sname from enrollment e inner join society s on e.sid = s.sid inner joi
 | coding |
 +--------+
 */
+
+-- Q25.  Create a view to keep track of society names with total number of students enrolled in it
