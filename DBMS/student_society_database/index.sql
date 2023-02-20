@@ -924,3 +924,36 @@ select s.sname from enrollment e inner join society s on e.sid = s.sid inner joi
 */
 
 -- Q25.  Create a view to keep track of society names with total number of students enrolled in it
+
+create view society_enrollment_count as select s.sid, s.sname, count(distinct e.rollno) as total_enrollment from society s inner join enrollment e on s.sid = e.sid group by s.sid, s.sname;
+
+show tables;
+
+/*
++--------------------------+
+| Tables_in_scheme         |
++--------------------------+
+| enrollment               |
+| society                  |
+| society_enrollment_count |
+| student                  |
++--------------------------+
+*/
+
+ select * from society_enrollment_count;
+
+ /*
++------+----------+------------------+
+| sid  | sname    | total_enrollment |
++------+----------+------------------+
+| 01   | debating |                2 |
+| 02   | dancing  |                3 |
+| 03   | shasakt  |                2 |
+| 04   | eco      |                1 |
+| 06   | tech     |                2 |
+| 07   | music    |                1 |
+| 08   | hacking  |                1 |
+| 09   | coding   |                2 |
+| 10   | cricket  |                1 |
++------+----------+------------------+
+*/

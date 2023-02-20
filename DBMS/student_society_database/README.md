@@ -1,3 +1,3 @@
-updated till q24.
+updated till q25.
 
 more solutions coming soon... 🙂
