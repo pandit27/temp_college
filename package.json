@@ -1,0 +1,37 @@
+{
+  "name": "temp_college",
+  "version": "1.0.0",
+  "description": "This directory contains all the practical files of my college",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AstroDeveloper1010/temp_college.git"
+  },
+  "keywords": [
+    "college",
+    "andc",
+    "du",
+    "computer_science",
+    "programming",
+    "c++",
+    "c",
+    "python",
+    "java",
+    "javascript",
+    "html",
+    "css",
+    "node_js",
+    "react_js",
+    "ai",
+    "ml"
+  ],
+  "author": "Priyanshu Jha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AstroDeveloper1010/temp_college/issues"
+  },
+  "homepage": "https://github.com/AstroDeveloper1010/temp_college#readme"
+}

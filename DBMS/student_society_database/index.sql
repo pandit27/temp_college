@@ -337,3 +337,82 @@ OUTPUT
 | M-1274  | Meenakshi | physics | 2004-01-09 |
 +---------+-----------+---------+------------+
 */
+
+-- Q11. Find total number of students whose age is > 20 years
+
+select name, rollno, cname, dob, curdate(), timestampdiff(year, dob, curdate()) as age from student;
+
+/*
+  OUTPUT
+
+  +-----------+---------+---------+------------+------------+------+
+| name      | rollno  | cname   | dob        | curdate()  | age  |
++-----------+---------+---------+------------+------------+------+
+| Nikhil    | X-1263  | pmcs    | 2001-04-02 | 2023-02-20 |   21 |
+| Vipin     | Z-1601  | pmcs    | 2001-04-03 | 2023-02-20 |   21 |
+| Priyanshu | AD-1274 | cs      | 2003-04-08 | 2023-02-20 |   19 |
+| Satendar  | A-1284  | cs      | 2002-04-07 | 2023-02-20 |   20 |
+| Deepak    | B-1230  | zoology | 2002-04-03 | 2023-02-20 |   20 |
+| Bhoomika  | P-1276  | pscs    | 2002-11-27 | 2023-02-20 |   20 |
+| Aman      | B-1290  | pscs    | 2002-04-10 | 2023-02-20 |   20 |
+| Meenakshi | M-1274  | physics | 2004-01-09 | 2023-02-20 |   19 |
++-----------+---------+---------+------------+------------+------+
+*/
+
+select * from student where timestampdiff(year, dob, curdate()) > 20;
+
+/*
+-- OUTPUT
+-- +--------+--------+-------+------------+
+-- | rollno | name   | cname | dob        |
+-- +--------+--------+-------+------------+
+-- | X-1263 | Nikhil | pmcs  | 2001-04-02 |
+-- | Z-1601 | Vipin  | pmcs  | 2001-04-03 |
+-- +--------+--------+-------+------------+
+*/
+
+-- Q12. Find the student names enrolled in atleast two societies
+
+ select * from enrollment;
+
+/*
++---------+------+------------------+
+| rollno  | sid  | dateOfEnrollment |
++---------+------+------------------+
+| AD-1274 | 06   | 2023-01-15       |
+| P-1276  | 07   | 2023-01-16       |
+| AD-1294 | 02   | 2023-02-15       |
+| X-1263  | 02   | 2023-01-17       |
+| Z-1601  | 06   | 2023-01-17       |
+| M-1274  | 03   | 2023-01-15       |
+| A-1284  | 09   | 2023-01-15       |
+| P-1276  | 04   | 2022-05-19       |
+| B-1290  | 08   | 2023-04-15       |
+| X-1263  | 10   | 2023-08-16       |
++---------+------+------------------+
+*/
+
+
+
+ select rollno, count(*) as count from enrollment group by rollno having count > 1;
+
+/*
++--------+-------+
+| rollno | count |
++--------+-------+
+| P-1276 |     2 |
+| X-1263 |     2 |
++--------+-------+
+*/
+
+
+select name from student where rollno = 'p-1276' or rollno = 'X-1263';
+
+/*
++----------+
+| name     |
++----------+
+| Nikhil   |
+| Bhoomika |
++----------+
+*/
