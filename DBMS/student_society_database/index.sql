@@ -713,3 +713,13 @@ select * from enrollment;
 | M-1274  | 01   | 2023-04-06       |
 +---------+------+------------------+
 */
+
+select distinct s.sname from society s inner join enrollment e on s.sid = e.sid where s.mentorname in (select name from student where rollno = e.rollno);
+
+/*
++----------+
+| sname    |
++----------+
+| debating |
++----------+
+*/
