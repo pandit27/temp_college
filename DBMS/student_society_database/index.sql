@@ -723,3 +723,28 @@ select distinct s.sname from society s inner join enrollment e on s.sid = e.sid 
 | debating |
 +----------+
 */
+
+-- Q18. Find the society names in which number of enrolled students are less than its capacity.
+
+ select s.sname from society s inner join enrollment e on s.sid = e.sid where (select count(*) from enrollment e2 where e2.sid = s.sid) < s/capacity;
+
+ /*
++----------+
+| sname    |
++----------+
+| tech     |
+| music    |
+| dancing  |
+| dancing  |
+| tech     |
+| shasakt  |
+| coding   |
+| eco      |
+| hacking  |
+| cricket  |
+| debating |
+| dancing  |
+| shasakt  |
+| debating |
++----------+
+*/
