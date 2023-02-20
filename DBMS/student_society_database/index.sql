@@ -667,5 +667,3 @@ select distinct s.sid, s.sname from society s left join enrollment e on s.sid = 
 | 03   | shasakt |
 +------+---------+
 */
-
-
