@@ -615,3 +615,57 @@ select * from enrollment;
  /*
  Empty set
  */
+
+ -- Q16.  Find society names that has ‘abc’ as mentor or ‘abc’ as the name of enrolled student.
+
+ select * from society;
+
+ /*
++------+----------+------------+----------+
+| sid  | sname    | mentorname | capacity |
++------+----------+------------+----------+
+| 01   | debating | Meenakshi  |       17 |
+| 02   | dancing  | Priyanka   |       22 |
+| 03   | shasakt  | Ayush      |       11 |
+| 04   | eco      | Mahesh     |       28 |
+| 05   | picfie   | Preeti     |       33 |
+| 06   | tech     | Nisha      |       22 |
+| 07   | music    | Ritesh     |        6 |
+| 08   | hacking  | deepika    |        9 |
+| 09   | coding   | Shubh      |       44 |
+| 10   | cricket  | Chirag     |       88 |
++------+----------+------------+----------+
+*/
+
+ update society set mentorname = 'Yuabcsh' where mentorname = 'Ayush';
+
+ select * from society;
+
+ /*
++------+----------+------------+----------+
+| sid  | sname    | mentorname | capacity |
++------+----------+------------+----------+
+| 01   | debating | Meenakshi  |       17 |
+| 02   | dancing  | Priyanka   |       22 |
+| 03   | shasakt  | Yuabcsh    |       11 |
+| 04   | eco      | Mahesh     |       28 |
+| 05   | picfie   | Preeti     |       33 |
+| 06   | tech     | Nisha      |       22 |
+| 07   | music    | Ritesh     |        6 |
+| 08   | hacking  | deepika    |        9 |
+| 09   | coding   | Shubh      |       44 |
+| 10   | cricket  | Chirag     |       88 |
++------+----------+------------+----------+
+*/
+
+select distinct s.sid, s.sname from society s left join enrollment e on s.sid = e.sid left join student st on e.rollno = st.rollno where s.mentorname like '%abc%' or st.name = '%abc%';
+
+/*
++------+---------+
+| sid  | sname   |
++------+---------+
+| 03   | shasakt |
++------+---------+
+*/
+
+
