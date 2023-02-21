@@ -1006,7 +1006,6 @@ alter table
 add
   fees_paid enum('yes', 'no') default 'no';
 
-mysql >
 select
   *
 from
@@ -1624,3 +1623,10 @@ order by
  +---------+-----------+---------+------------+---------+------+----------+
  */
 -- Q35. Display society names in uppercase and padded with character * to get a length of 10 characters which are mentored by mentors whose names start with ‘M’ and ends with ‘r’ and capacity is between 10 to 20.
+select
+  rpad(upper(sname), 10, '*') 'Right Padded'
+from
+  society
+where
+  mentorname like 's%i'
+  and capacity > 20;
