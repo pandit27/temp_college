@@ -1528,4 +1528,15 @@ limit
 
  -- Q31. Find names of students born in year 2001 and enrolled in atleast one society
 
+select name from student where year(dob) = 2001 and rollno in (select rollno from enrollment);
+
+/*
++--------+
+| name   |
++--------+
+| Nikhil |
+| Vipin  |
++--------+
+*/
+
 
