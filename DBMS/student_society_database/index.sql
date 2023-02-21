@@ -1553,6 +1553,43 @@ alter table
 alter column
   contact drop default;
 
+-- Q33. Find society names where students have enrolled in month Jan/Feb
+select
+  distinct s.sname,
+  month(e.dateOfEnrollment)
+from
+  enrollment e
+  inner join society s
+where
+  month(e.dateOfEnrollment) = '1'
+  or month(e.dateOfEnrollment) = '2';
+
+/*
+ +----------+---------------------------+
+ | sname    | month(e.dateOfEnrollment) |
+ +----------+---------------------------+
+ | cricket  |                         1 |
+ | coding   |                         1 |
+ | hacking  |                         1 |
+ | music    |                         1 |
+ | tech     |                         1 |
+ | picfie   |                         1 |
+ | eco      |                         1 |
+ | shasakt  |                         1 |
+ | dancing  |                         1 |
+ | debating |                         1 |
+ | cricket  |                         2 |
+ | coding   |                         2 |
+ | hacking  |                         2 |
+ | music    |                         2 |
+ | tech     |                         2 |
+ | picfie   |                         2 |
+ | eco      |                         2 |
+ | shasakt  |                         2 |
+ | dancing  |                         2 |
+ | debating |                         2 |
+ +----------+---------------------------+
+ */
 -- Q34. Display all students details alongwith society name if they are enrolled in any society
 select
   st.*,
@@ -1586,5 +1623,4 @@ order by
  | Z-1601  | Vipin     | pmcs    | 2001-04-03 | unknown | 06   | tech     |
  +---------+-----------+---------+------------+---------+------+----------+
  */
-
- 
+-- Q35. Display society names in uppercase and padded with character * to get a length of 10 characters which are mentored by mentors whose names start with ‘M’ and ends with ‘r’ and capacity is between 10 to 20.
