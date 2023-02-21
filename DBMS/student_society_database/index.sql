@@ -1525,18 +1525,66 @@ limit
  | music |                  1 |
  +-------+--------------------+
  */
-
- -- Q31. Find names of students born in year 2001 and enrolled in atleast one society
-
-select name from student where year(dob) = 2001 and rollno in (select rollno from enrollment);
+-- Q31. Find names of students born in year 2001 and enrolled in atleast one society
+select
+  name
+from
+  student
+where
+  year(dob) = 2001
+  and rollno in (
+    select
+      rollno
+    from
+      enrollment
+  );
 
 /*
-+--------+
-| name   |
-+--------+
-| Nikhil |
-| Vipin  |
-+--------+
-*/
+ +--------+
+ | name   |
+ +--------+
+ | Nikhil |
+ | Vipin  |
+ +--------+
+ */
+-- Q32. Remove default value of any field
+alter table
+  student
+alter column
+  contact drop default;
 
+-- Q34. Display all students details alongwith society name if they are enrolled in any society
+select
+  st.*,
+  e.sid,
+  s.sname
+from
+  enrollment e
+  join society s on e.sid = s.sid
+  inner join student st on e.rollno = st.rollno
+order by
+  st.name;
 
+/*
+ +---------+-----------+---------+------------+---------+------+----------+
+ | rollno  | name      | cname   | dob        | contact | sid  | sname    |
+ +---------+-----------+---------+------------+---------+------+----------+
+ | B-1290  | Aman      | pscs    | 2002-04-10 | unknown | 01   | debating |
+ | B-1290  | Aman      | pscs    | 2002-04-10 | unknown | 02   | dancing  |
+ | B-1290  | Aman      | pscs    | 2002-04-10 | unknown | 03   | shasakt  |
+ | B-1290  | Aman      | pscs    | 2002-04-10 | unknown | 08   | hacking  |
+ | B-1290  | Aman      | pscs    | 2002-04-10 | unknown | 09   | coding   |
+ | P-1276  | Bhoomika  | pscs    | 2002-11-27 | unknown | 04   | eco      |
+ | P-1276  | Bhoomika  | pscs    | 2002-11-27 | unknown | 07   | music    |
+ | M-1274  | Meenakshi | physics | 2004-01-09 | unknown | 01   | debating |
+ | M-1274  | Meenakshi | physics | 2004-01-09 | unknown | 02   | dancing  |
+ | M-1274  | Meenakshi | physics | 2004-01-09 | unknown | 03   | shasakt  |
+ | X-1263  | Nikhil    | pmcs    | 2001-04-02 | unknown | 02   | dancing  |
+ | X-1263  | Nikhil    | pmcs    | 2001-04-02 | unknown | 10   | cricket  |
+ | AD-1274 | Priyanshu | cs      | 2003-04-08 | unknown | 06   | tech     |
+ | A-1284  | Satendar  | cs      | 2002-04-07 | unknown | 09   | coding   |
+ | Z-1601  | Vipin     | pmcs    | 2001-04-03 | unknown | 06   | tech     |
+ +---------+-----------+---------+------------+---------+------+----------+
+ */
+
+ 
