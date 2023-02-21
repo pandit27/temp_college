@@ -1525,3 +1525,7 @@ limit
  | music |                  1 |
  +-------+--------------------+
  */
+
+ -- Q31. Find names of students born in year 2001 and enrolled in atleast one society
+
+
