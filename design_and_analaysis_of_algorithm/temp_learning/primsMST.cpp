@@ -1,6 +1,3 @@
-// Code written by Priyanshu Jha
-// C++ code to find the minimum spanning tree weight
-
 #include <iostream>
 #include <vector>
 #include <list>
@@ -8,10 +5,23 @@
 #include <queue>
 using namespace std;
 
-class solution
+class Solution
 {
 public:
-    int ms_tree(int v, list<vector<int>> adj[])
+    list<pair<int, int>> *adj;
+
+    Solution(int v)
+    {
+        adj = new list<pair<int, int>>[v];
+    }
+
+    void addEdge(int u, int v, int w)
+    {
+        adj[u].push_back(make_pair(v, w));
+        adj[v].push_back(make_pair(u, w));
+    }
+
+    int ms_tree(int v)
     {
         priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
         // (weight, node)
@@ -38,8 +48,8 @@ public:
 
             for (auto it : adj[node])
             {
-                int adjNode = it[0];
-                int edW = it[1];
+                int adjNode = it.first;
+                int edW = it.second;
 
                 if (!vis[adjNode])
                 {
@@ -56,19 +66,16 @@ int main()
 {
     int V = 6;
 
-    list<vector<int>> adj[V];
+    Solution s(V);
+    s.addEdge(0, 1, 4);
+    s.addEdge(0, 2, 3);
+    s.addEdge(1, 2, 1);
+    s.addEdge(1, 3, 2);
+    s.addEdge(2, 3, 4);
+    s.addEdge(3, 4, 2);
+    s.addEdge(4, 5, 6);
 
-    adj[0].push_back({1, 4});
-    adj[0].push_back({2, 3});
-    adj[1].push_back({2, 1});
-    adj[1].push_back({3, 2});
-    adj[2].push_back({3, 4});
-    adj[3].push_back({4, 2});
-    adj[4].push_back({5, 6});
-
-    solution s;
-
-    int mst_weight = s.ms_tree(V, adj);
+    int mst_weight = s.ms_tree(V);
     cout << "Weight of minimum spanning tree: " << mst_weight << endl;
 
     return 0;
