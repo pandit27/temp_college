@@ -15,7 +15,7 @@ public:
     void addEdge(int a, int b)
     {
         m[a].push_back(b); // add edge from a to b
-        m[b].push_back(a); // add edge from b to a (undirected graph)
+        m[b].push_back(a); // add edge from b to a (only if it is an undirected graph)
     }
 
     vector<int> bfs_path(int v)
@@ -23,9 +23,9 @@ public:
         vector<int> bfs;       // vector to store bfs path
         vector<int> vis(v, 0); // vector to find if a node is visited or not
 
-        for (int i = 0; i < v; i++) // loop over all nodes (0-based indexing)
+        for (int i = 0; i < v; i++) // for loop to traverse over all nodes
         {
-            if (vis[i] == 0) // if the node hasn't been visited yet
+            if (vis[i] == 0) // if the node is unvisited
             {
                 queue<int> q; // queue to add the nodes in the queue to perform pop() operation and find the bfs path
 
@@ -39,9 +39,9 @@ public:
 
                     bfs.push_back(top); // add the node to the bfs vector to keep track of the order in which nodes are visited
 
-                    for (auto it : m[top]) // loop over all neighbors of the current node
+                    for (auto it : m[top]) // for loop to traverse over all the neighbors of the current node
                     {
-                        if (vis[it] == 0) // if the neighbor hasn't been visited yet
+                        if (vis[it] == 0) // if the neighbor has not been visited yet
                         {
                             q.push(it);  // add the neighbor to the queue
                             vis[it] = 1; // mark the neighbor as visited
@@ -51,7 +51,7 @@ public:
             }
         }
 
-        return bfs; // return the bfs vector containing the order in which nodes were visited during the traversal
+        return bfs; // return the bfs vector containing the bfs path
     }
 };
 
@@ -59,8 +59,9 @@ int main()
 {
     int v = 10; // number of nodes in the graph
 
-    solution s;      // create a new solution object
-    s.addEdge(0, 3); // add edges to the graph
+    solution s;
+    // add edges to the graph
+    s.addEdge(0, 3);
     s.addEdge(1, 8);
     s.addEdge(5, 7);
     s.addEdge(3, 2);
