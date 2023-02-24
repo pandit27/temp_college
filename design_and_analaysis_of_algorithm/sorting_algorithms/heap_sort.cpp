@@ -12,7 +12,7 @@ class heap
 {
 public:
     void h_sort(vector<int> &v, int n);
-    void heapify(vector<int> &v, int i);
+    void heapify(vector<int> &v, int size, int i);
     void insertElement(vector<int> &v, int n, int e);
     void deleteElement(vector<int> &v, int n, int e);
     void printArray(vector<int> &v, int n);
@@ -50,46 +50,43 @@ int main()
 // function to perform heap sort
 void heap::h_sort(vector<int> &v, int n)
 {
+    int n = v.size();
     // heapify the heap first to get the largest element at index 0
     for (int i = (n / 2) - 1; i >= 0; i--)
     {
-        heapify(v, i);
+        heapify(v, n, i);
     }
 
     // now swap v[0] with v[n - 1] and reduce the size of n by 1
     for (int i = (n - 1); i >= 0; i--)
     {
         swap(&v[0], &v[i]);
-        heapify(v, i);
+        heapify(v, i, 0);
     }
 }
 
 // function to heapify the heap
-void heap::heapify(vector<int> &v, int i)
+void heap::heapify(vector<int> &v, int n, int i)
 {
-    int n = v.size(); // n = size of the array
-    int largest = i;  // assume i = largest
+    int largest = i;
+    int l = (2 * i) + 1;
+    int r = (2 * i) + 2;
 
-    int left = 2 * i + 1;  // left element of the node
-    int right = 2 * i + 2; // right element of the node
-
-    // if left is larger than largest than largest = left
-    if (left < n && v[largest] < v[left])
+    if (l < n && v[l] > v[largest])
     {
-        largest = left;
+        largest = l;
     }
 
-    // if right is larger than largest than largest = right
-    if (right < n && v[largest] < v[right])
+    if (r < n && v[r] > v[largest])
     {
-        largest = right;
+        largest = r;
     }
 
-    // if largest = i then no need to heapify
     if (largest != i)
     {
         swap(&v[i], &v[largest]);
-        heapify(v, largest);
+
+        heapify(v, n, largest);
     }
 }
 
@@ -107,7 +104,7 @@ void heap::insertElement(vector<int> &v, int n, int e)
         v.push_back(e);
         for (int i = (n / 2) - 1; i >= 0; i++)
         {
-            heapify(v, i);
+            heapify(v, n, i);
         }
     }
 }
@@ -122,8 +119,6 @@ void heap::deleteElement(vector<int> &v, int n, int e)
         v.pop_back();
     }
 
-    int i;
-
     for (int i = 0; i < n; i++)
     {
         if (e == v[i])
@@ -132,12 +127,14 @@ void heap::deleteElement(vector<int> &v, int n, int e)
         }
     }
 
+    int i;
+
     swap(&v[i], &v[n - 1]);
     v.pop_back();
 
     for (int i = (n / 2) - 1; i >= 0; i--)
     {
-        heapify(v, i);
+        heapify(v, n, i);
     }
 }
 
