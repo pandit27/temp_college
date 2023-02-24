@@ -1,90 +1,75 @@
+// Code written by Priyanshu Jha
+// C++ code to find the minimum spanning tree weight
+
 #include <iostream>
 #include <vector>
 #include <list>
-#include <map>
-#include <queue>
 #include <utility>
-
+#include <queue>
 using namespace std;
 
-class prims_algorithm
+class solution
 {
 public:
-    list<pair<int, int>> *adj;
-    void addEdge(int u, int v, int w)
-    {
-        adj[u].push_back(make_pair(v, w));
-        adj[v].push_back(make_pair(u, w));
-    }
-
-    void prims_mst(int v)
+    int ms_tree(int v, list<vector<int>> adj[])
     {
         priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
+        // (weight, node)
 
-        int src = 0;
+        vector<int> vis(v, 0);
 
-        vector<int> key(v, 9999);
-        vector<int> parent(v, -1);
-        vector<bool> mst_set(v, false);
-
-        pq.push(make_pair(0, src));
-        key[src] = 0;
+        pq.push(make_pair(0, 0));
+        int sum = 0;
 
         while (!pq.empty())
         {
-            int top = pq.top().second;
+            auto it = pq.top();
             pq.pop();
+            int node = it.second;
+            int wt = it.first;
 
-            if (mst_set[top] == true)
+            if (vis[node] == 1)
             {
                 continue;
             }
 
-            mst_set[top] = true;
+            vis[node] = 1;
+            sum = sum + wt;
 
-            for (auto i = adj[top].begin(); i != adj[top].end(); i++)
+            for (auto it : adj[node])
             {
-                int node = (*i).first;
-                int weight = (*i).second;
+                int adjNode = it[0];
+                int edW = it[1];
 
-                if (mst_set[node] == false && key[node] > weight)
+                if (!vis[adjNode])
                 {
-                    key[node] = weight;
-                    pq.push(make_pair(key[node], node));
-                    parent[node] = top;
+                    pq.push(make_pair(edW, adjNode));
                 }
             }
         }
 
-        for (int i = 1; i < v; i++)
-        {
-            cout << parent[i] << i << endl;
-        }
+        return sum;
     }
 };
 
 int main()
 {
-    int v = 9;
+    int V = 6;
 
-    prims_algorithm p;
+    list<vector<int>> adj[V];
 
-    p.addEdge(0, 1, 4);
-    p.addEdge(0, 7, 8);
-    p.addEdge(1, 2, 8);
-    p.addEdge(1, 7, 11);
-    p.addEdge(2, 3, 7);
-    p.addEdge(2, 8, 2);
-    p.addEdge(2, 5, 4);
-    p.addEdge(3, 4, 9);
-    p.addEdge(3, 5, 14);
-    p.addEdge(4, 5, 10);
-    p.addEdge(5, 6, 2);
-    p.addEdge(6, 7, 1);
-    p.addEdge(6, 8, 6);
-    p.addEdge(7, 8, 7);
+    adj[0].push_back({1, 4});
+    adj[0].push_back({2, 3});
+    adj[1].push_back({2, 1});
+    adj[1].push_back({3, 2});
+    adj[2].push_back({3, 4});
+    adj[3].push_back({4, 2});
+    adj[4].push_back({5, 6});
 
-    p.prims_mst(v);
+    solution s;
+
+    int mst_weight = s.ms_tree(V, adj);
+    cout << "Weight of minimum spanning tree: " << mst_weight << endl;
 
     return 0;
 }
