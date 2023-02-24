@@ -24,7 +24,6 @@ public:
     int ms_tree(int v, vector<pair<int, int>> &mst)
     {
         priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
-        // (weight, node)
 
         vector<int> vis(v, 0);
 
