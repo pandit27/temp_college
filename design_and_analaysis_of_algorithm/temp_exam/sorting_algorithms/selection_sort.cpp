@@ -2,8 +2,6 @@
 
 #include <iostream>
 #include <vector>
-#include <map>
-#include <list>
 #include <utility>
 
 using namespace std;
