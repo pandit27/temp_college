@@ -17,22 +17,26 @@ public:
         {
             if (v[i] <= v[j])
             {
-                temp.push_back(v[i++]);
+                temp.push_back(v[i]);
+                i++;
             }
             else
             {
-                temp.push_back(v[j++]);
+                temp.push_back(v[j]);
+                j++;
             }
         }
 
         while (i <= mid)
         {
-            temp.push_back(v[i++]);
+            temp.push_back(v[i]);
+            i++;
         }
 
         while (j <= right)
         {
-            temp.push_back(v[j++]);
+            temp.push_back(v[j]);
+            j++;
         }
 
         for (int k = 0; k < temp.size(); k++)
@@ -45,7 +49,7 @@ public:
     {
         if (low >= high)
             return;
-        int mid = (low + high) / 2;
+        auto mid = (low + high) / 2;
         merge_sort(v, low, mid);
         merge_sort(v, mid + 1, high);
         merge(v, low, mid, high);
