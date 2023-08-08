@@ -1,0 +1,1 @@
+This directory contains all practicals of Internet Technologies (sem 5)
