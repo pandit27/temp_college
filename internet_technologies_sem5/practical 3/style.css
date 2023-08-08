@@ -1,61 +1,183 @@
 /* Reset some default styles and add global styles */
-body, h1, h2, p {
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    /* background-color: #081b29; */
-    background: url('/bg.webp');
-    background-repeat: no-repeat;
-    background-size: cover;
-    object-fit: cover;
-    color: #333;
+  font-family: Arial, sans-serif;
+  background: url("/bg.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+  color: #fff;
 }
 
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
 }
 
 nav ul {
-    list-style: none;
+  list-style: none;
+  display: flex;
+  gap: 2vw;
+  align-items: center;
+}
+
+.logo {
+  margin-right: 40vw;
+  margin-left: 2vw;
+  font-size: 30px;
+  color: white !important;
 }
 
 nav ul li {
-    display: inline;
-    margin-right: 20px;
+  margin-right: 20px;
+  color: blue;
+}
+
+li:hover {
+  color: blue !important;
 }
 
 nav a {
-    text-decoration: none;
-    color: #fff;
+  text-decoration: none;
+  color: #fff;
 }
 
 section {
-    padding: 50px;
+  padding: 50px;
 }
 
 .intro {
-    text-align: center;
+  text-align: center;
+  padding: 20px 0;
 }
 
 .intro h1 {
-    font-size: 3em;
-    margin-bottom: 10px;
+  font-size: 4em;
+  margin-bottom: 20px;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: -1px;
 }
 
 .intro p {
-    font-size: 1.5em;
+  font-size: 1.8em;
+  color: #fff;
+  line-height: 1.4;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-/* Add more styles for projects, about, and contact sections as needed */
+.intro .cta-button {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 30px;
+  background-color: #ff6b6b;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 1px;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
 
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #333;
-    color: #fff;
+.intro .cta-button:hover {
+  background-color: #ff4136;
+}
+
+.section-heading {
+  text-align: center;
+}
+
+.course-content {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.course-item {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.course-item h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.course-item p {
+  font-size: 1.1em;
+  color: #666;
+  line-height: 1.6;
+}
+
+.course-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#address {
+  /* background-color: #f6f6f6; */
+  padding: 60px 0;
+}
+
+.address-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.address-item {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 40px;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.address-item h3 {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.address-item p {
+  font-size: 1.2em;
+  color: #666;
+  line-height: 1.6;
+}
+
+.address-item a {
+  color: #ff6b6b;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.address-item a:hover {
+  color: #ff4136;
+}
+
+.address-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
