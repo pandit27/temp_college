@@ -1,57 +1,61 @@
+/* Reset some default styles and add global styles */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f7f7f7;
-  color: #333;
+    font-family: Arial, sans-serif;
+    /* background-color: #081b29; */
+    background: url('/bg.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover;
+    color: #333;
 }
 
 header {
-  background-color: #3498db;
-  color: #fff;
-  text-align: center;
-  padding: 1rem;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
 }
 
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem;
+nav ul {
+    list-style: none;
 }
 
-h1 {
-  color: #3498db;
+nav ul li {
+    display: inline;
+    margin-right: 20px;
 }
 
-.info {
-  margin-bottom: 1.5rem;
+nav a {
+    text-decoration: none;
+    color: #fff;
 }
 
-.info label {
-  font-weight: bold;
+section {
+    padding: 50px;
 }
 
-.hobbies {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
+.intro {
+    text-align: center;
 }
 
-.hobbies li {
-  background-color: #f2f2f2;
-  color: #555;
-  padding: 0.5rem 1rem;
-  margin: 0.25rem;
-  border-radius: 0.25rem;
+.intro h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
 }
+
+.intro p {
+    font-size: 1.5em;
+}
+
+/* Add more styles for projects, about, and contact sections as needed */
 
 footer {
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 1rem;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
 }
