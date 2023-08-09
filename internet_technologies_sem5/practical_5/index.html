@@ -1,0 +1,47 @@
+<!-- 
+    Create an HTML page with a paragraph written on it and under which 9 buttons are placed in a 3X3 grid. The first row is for buttons labeled with colors names Red, Green and Blue, the second row with numbers 10, 20, 30 and the third row with different font names. Click event of each of the buttons should make the apppropriate change in the style of paragraph.
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buttons Functions</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .flex-row {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .flex-column {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body>
+    <p class="para">Jarvis is the future.</p>
+    <div class="grid flex-column">
+        <div class="flex-row">
+            <button class="red">Red</button>
+            <button class="green">Green</button>
+            <button class="blue">Blue</button>
+        </div>
+        <div class="flex-row">
+            <button class="ten">10</button>
+            <button class="twenty">20</button>
+            <button class="thirty">30</button>
+        </div>
+        <div class="flex-row">
+            <button class="cursive">cursive</button>
+            <button class="cnew">Courier New</button>
+            <button class="tnr">Times New Roman</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
