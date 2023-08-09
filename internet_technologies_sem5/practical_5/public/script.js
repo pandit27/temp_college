@@ -10,6 +10,7 @@ const cursive = document.querySelector('.cursive');
 const cnew = document.querySelector('.cnew');
 const tnr = document.querySelector('.tnr');
 
+// adding event listener to buttons
 red.addEventListener('click', (e) => {
     para.style.color = 'red';
 });
