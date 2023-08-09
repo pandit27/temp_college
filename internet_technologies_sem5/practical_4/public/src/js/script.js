@@ -17,7 +17,7 @@ let createListItem = (content) => {
     const li = document.createElement('li');
     li.textContent = content;
     li.style.color = randomColor();
-    li.style.fontSize = randomFontSize();
+    li.style.fontSize = `${randomFontSize()}px`;
     return li;
 };
 
@@ -39,4 +39,4 @@ let updateMultiplicationTable = () => {
 
 // setInterval function
 updateMultiplicationTable();
-// setInterval(updateMultiplicationTable, 1000);
+setInterval(updateMultiplicationTable, 1000);
