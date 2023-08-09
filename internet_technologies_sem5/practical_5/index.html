@@ -9,22 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buttons Functions</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        .flex-row {
-            display: flex;
-            flex-direction: row;
-        }
-
-        .flex-column {
-            display: flex;
-            flex-direction: column;
-        }
-    </style>
 </head>
 
 <body>
-    <p class="para">Jarvis is the future.</p>
     <div class="grid flex-column">
+        <p class="para">Jarvis is the future.</p>
         <div class="flex-row">
             <button class="red">Red</button>
             <button class="green">Green</button>
@@ -36,9 +25,12 @@
             <button class="thirty">30</button>
         </div>
         <div class="flex-row">
-            <button class="cursive">cursive</button>
+            <button class="cursive">Cursive</button>
             <button class="cnew">Courier New</button>
             <button class="tnr">Times New Roman</button>
+        </div>
+        <div class="flex-row">
+            <button onclick="location.reload()">Reset</button>
         </div>
     </div>
     <script src="script.js"></script>

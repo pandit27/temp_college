@@ -23,15 +23,15 @@ green.addEventListener('click', (e) => {
 });
 
 ten.addEventListener('click', (e) => {
-    para.style.fontSize = 10;
+    para.style.fontSize = '10px';
 });
 
 twenty.addEventListener('click', (e) => {
-    para.style.fontSize = 20;
+    para.style.fontSize = '20px';
 });
 
 thirty.addEventListener('click', (e) => {
-    para.style.fontSize = 30;
+    para.style.fontSize = '30px';
 });
 
 cursive.addEventListener('click', (e) => {
