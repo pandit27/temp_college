@@ -1,0 +1,23 @@
+[
+    {
+        "name": "Buddy",
+        "age": 3,
+        "weight": 12.5,
+        "type": "dog",
+        "description": "A friendly golden retriever."
+    },
+    {
+        "name": "Whiskers",
+        "age": 2,
+        "weight": 4.2,
+        "type": "cat",
+        "description": "A playful and curious tabby cat."
+    },
+    {
+        "name": "Tweety",
+        "age": 1,
+        "weight": 0.1,
+        "type": "bird",
+        "description": "A tiny and colorful canary."
+    }
+]
