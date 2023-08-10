@@ -1,7 +1,7 @@
 # temp_college
 
-- [✓] **DBMS** 
+[✓] **DBMS** 
   
-- [✓] **Design & Analysis of Algorithms **
+[✓] **Design & Analysis of Algorithms**
 
-- [✓] **Internet Technologies**
+[✓] **Internet Technologies**
