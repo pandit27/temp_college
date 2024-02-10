@@ -5,3 +5,5 @@
 [✓] **Design & Analysis of Algorithms**
 
 [✓] **Internet Technologies**
+
+[✓] **Artificial Inteligence**
