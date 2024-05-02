@@ -6,6 +6,8 @@
 
 [✓] **Internet Technologies**
 
+[✓] **DAV** 
+
 [✓] **Artificial Inteligence**
 
 [✓] **Data Mining**
